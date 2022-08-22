@@ -1,0 +1,2168 @@
+def on_on_chat():
+    global block
+    block = "bbb:cobblestone_bricks"
+player.on_chat("\\\\select.cobblestone_bricks", on_on_chat)
+
+def on_on_chat2():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 14 replace air")
+player.on_chat("\\\\waypoint_red", on_on_chat2)
+
+def on_on_chat3():
+    global block
+    block = "bbb:limestone_bricks"
+    fill_world_edit()
+player.on_chat("\\\\limestone_bricks", on_on_chat3)
+
+def on_on_chat4():
+    fill_replace("air")
+player.on_chat("\\\\fill.replace_air", on_on_chat4)
+
+def on_on_chat5():
+    global block
+    block = "iron_block"
+    fill_world_edit()
+player.on_chat("\\\\iron_block", on_on_chat5)
+
+def on_on_chat6():
+    global block
+    block = "copper_ore"
+player.on_chat("\\\\select.copper_ore", on_on_chat6)
+
+def on_on_chat7():
+    player.execute("setblock ~~~ fire")
+player.on_chat("\\\\light", on_on_chat7)
+
+def on_on_chat8():
+    player.execute("gamemode c")
+player.on_chat("\\\\gmc", on_on_chat8)
+
+def on_on_chat9():
+    global block
+    block = "hardened_clay"
+    fill_world_edit()
+player.on_chat("\\\\hardened_clay", on_on_chat9)
+
+def on_on_chat10():
+    player.execute("teleport @e[type=agent,name=" + ("" + player.name() + ".Agent") + "] ~ ~150 ~")
+    player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"Teleported Agent Up, use c.agentcall to teleport your agent back to you\"}]}")
+player.on_chat("\\\\agentup", on_on_chat10)
+
+def on_on_chat11():
+    global block
+    block = "stone 4"
+player.on_chat("\\\\select.polished_diorite", on_on_chat11)
+
+def on_on_chat12(summon_amount):
+    for index in range(summon_amount):
+        player.execute("summon tnt")
+player.on_chat("\\\\summon.tnt", on_on_chat12)
+
+def on_on_chat13():
+    global block
+    block = "bbb:mossy_cobblestone_bricks"
+    fill_world_edit()
+player.on_chat("\\\\mossy_cobblestone_bricks", on_on_chat13)
+
+def on_on_chat14():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 8 replace air")
+player.on_chat("\\\\waypoint_light_grey", on_on_chat14)
+
+def on_on_chat15(agent_inv_no, custom_data):
+    blocks.fill(blocks.block_with_data(blocks.block_by_id(agent.get_item_detail(agent_inv_no)),
+            custom_data),
+        world(_1, _2, _3),
+        world(_4, _5, _6),
+        FillOperation.REPLACE)
+player.on_chat("\\\\fill.custom", on_on_chat15)
+
+def on_on_chat16(blockid):
+    global block
+    block = "quartz_block " + str(blockid)
+    fill_world_edit()
+player.on_chat("\\\\quartz", on_on_chat16)
+
+def on_on_chat17(blockid2):
+    global block
+    block = "quartz_block " + str(blockid2)
+player.on_chat("\\\\select.quartz_block", on_on_chat17)
+
+def on_on_chat18():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 10 replace air")
+player.on_chat("\\\\waypoint_purple", on_on_chat18)
+
+def on_on_chat19():
+    global block
+    block = "packed_ice"
+    fill_world_edit()
+player.on_chat("\\\\packed_ice", on_on_chat19)
+
+def on_on_chat20():
+    global block
+    block = "lapis_block"
+player.on_chat("\\\\select.lapis_block", on_on_chat20)
+
+def on_on_chat21():
+    global block
+    block = "sand"
+player.on_chat("\\\\select.sand", on_on_chat21)
+
+def on_on_chat22():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 6 replace air")
+player.on_chat("\\\\waypoint_pink", on_on_chat22)
+
+def on_on_chat23():
+    global block
+    block = "redstone_ore"
+player.on_chat("\\\\select.redstone_ore", on_on_chat23)
+
+def on_on_chat24():
+    agent.teleport_to_player()
+player.on_chat("\\\\agentcall", on_on_chat24)
+
+def on_on_chat25():
+    global block
+    block = "fire"
+player.on_chat("\\\\select.fire", on_on_chat25)
+
+def on_on_chat26():
+    global block
+    block = "obsidian"
+    fill_world_edit()
+player.on_chat("\\\\obsidian", on_on_chat26)
+
+def cut(xyz: Position):
+    player.execute("clone " + str(_1) + " " + str(_2) + " " + str(_3) + " " + str(_4) + " " + str(_5) + " " + str(_6) + " " + str(xyz) + " masked move")
+
+def on_on_chat27():
+    global block
+    block = "lapis_ore"
+player.on_chat("\\\\select.lapis_ore", on_on_chat27)
+
+def on_on_chat28():
+    global block
+    block = "bbb:mossy_cobblestone_bricks"
+player.on_chat("\\\\select.mossy_cobblestone_bricks", on_on_chat28)
+
+def on_on_chat29():
+    global block
+    block = "tuff"
+player.on_chat("\\\\select.tuff", on_on_chat29)
+
+def on_on_chat30():
+    player.execute("setblock ~ ~ ~ " + block)
+player.on_chat("\\\\place", on_on_chat30)
+
+def clone(xyz2: Position):
+    player.execute("clone " + str(_1) + " " + str(_2) + " " + str(_3) + " " + str(_4) + " " + str(_5) + " " + str(_6) + " " + str(xyz2))
+
+def on_on_chat31():
+    global block
+    block = "hardened_clay"
+player.on_chat("\\\\select.hardened_clay", on_on_chat31)
+
+def on_item_interacted_wooden_axe():
+    fill()
+player.on_item_interacted(WOODEN_AXE, on_item_interacted_wooden_axe)
+
+def on_on_chat32():
+    global block
+    block = "bbb:jasper_bricks"
+player.on_chat("\\\\select.jasper_bricks", on_on_chat32)
+
+def on_on_chat33():
+    global block
+    block = "end_stone"
+    fill_world_edit()
+player.on_chat("\\\\end_stone", on_on_chat33)
+
+def on_on_chat34():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 5 replace air")
+player.on_chat("\\\\waypoint_lime", on_on_chat34)
+
+def on_on_chat35():
+    global block
+    block = "stone 1"
+    fill_world_edit()
+player.on_chat("\\\\granite", on_on_chat35)
+
+def on_on_chat36(blockid3):
+    global block
+    block = "end_portal_frame " + str(blockid3)
+    fill_world_edit()
+player.on_chat("\\\\end_portal_frame", on_on_chat36)
+
+def on_on_chat37():
+    global block
+    block = "diamond_ore"
+    fill_world_edit()
+player.on_chat("\\\\diamond_ore", on_on_chat37)
+
+def on_on_chat38():
+    global block
+    block = "portal"
+    fill_world_edit()
+player.on_chat("\\\\portal", on_on_chat38)
+
+def on_on_chat39():
+    global block
+    block = "packed_ice"
+player.on_chat("\\\\select packed_ice", on_on_chat39)
+
+def on_on_chat40():
+    global block
+    block = "tuff"
+    fill_world_edit()
+player.on_chat("\\\\tuff", on_on_chat40)
+
+def on_on_chat41():
+    global block
+    block = "lapis_block"
+    fill_world_edit()
+player.on_chat("\\\\lapis_block", on_on_chat41)
+
+def on_on_chat42():
+    global block
+    block = "bbb:polished_limestone"
+    fill_world_edit()
+player.on_chat("\\\\polished_limestone", on_on_chat42)
+
+def on_on_chat43(blockid4):
+    global block
+    block = "leaves " + str(blockid4)
+    fill_world_edit()
+player.on_chat("\\\\leaves", on_on_chat43)
+
+def on_on_chat44():
+    global block
+    block = "snow"
+player.on_chat("\\\\select.snow", on_on_chat44)
+
+def on_on_chat45():
+    global block
+    block = "quartz_block 3"
+    fill_world_edit()
+player.on_chat("\\\\smooth_quartz_block", on_on_chat45)
+
+def on_on_chat46():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 3 replace air")
+player.on_chat("\\\\waypoint_light_blue", on_on_chat46)
+
+def on_on_chat47():
+    global block
+    block = "stone 5"
+player.on_chat("\\\\select.andesite", on_on_chat47)
+
+def on_on_chat48():
+    global block
+    block = "netherrack"
+player.on_chat("\\\\select.netherrack", on_on_chat48)
+
+def on_on_chat49():
+    global block
+    block = "bbb:dotted_subtle_bricks"
+    fill_world_edit()
+player.on_chat("\\\\dotted_subtle_bricks", on_on_chat49)
+
+def on_on_chat50():
+    global block
+    block = "cobblestone"
+player.on_chat("\\\\select.cobblestone", on_on_chat50)
+
+def on_on_chat51(blockid5):
+    global block
+    block = "stained_hardened_clay " + str(blockid5)
+    fill_world_edit()
+player.on_chat("\\\\stained_terracotta", on_on_chat51)
+
+def on_on_chat52():
+    player.execute("give @p wooden_axe")
+    player.execute("give @p redstone_torch")
+    player.execute("give @p shears")
+    player.execute("give @p paper")
+player.on_chat("WEtools", on_on_chat52)
+
+def on_on_chat53():
+    global block
+    block = "lapis_ore"
+    fill_world_edit()
+player.on_chat("\\\\lapis_ore", on_on_chat53)
+
+def on_on_chat54():
+    global block
+    block = "bbb:limestone"
+    fill_world_edit()
+player.on_chat("\\\\limestone", on_on_chat54)
+
+def on_on_chat55():
+    global block
+    block = "bbb:polished_limestone"
+player.on_chat("\\\\select.polished_limestone", on_on_chat55)
+
+def on_on_chat56(blockid6):
+    global block
+    block = "quartz_block " + str(blockid6)
+player.on_chat("\\\\select.quartz", on_on_chat56)
+
+def on_on_chat57():
+    player.say("Deleting all items floating around...")
+    loops.pause(20)
+    player.execute("kill @e[type=item]")
+    player.say("Optimization Successful")
+player.on_chat("\\\\optimize", on_on_chat57)
+
+def on_on_chat58(blockid7):
+    global block
+    block = "log " + str(blockid7)
+player.on_chat("\\\\select.log", on_on_chat58)
+
+def on_item_interacted_nether_star():
+    player.execute("/fill ~3 ~150 ~3 ~-3 ~-10 ~-3 air 0 replace wool")
+player.on_item_interacted(NETHER_STAR, on_item_interacted_nether_star)
+
+def on_on_chat59(blockid8):
+    global block
+    block = "stained_glass_pane " + str(blockid8)
+    fill_world_edit()
+player.on_chat("\\\\stained_glass_pane", on_on_chat59)
+
+def on_on_chat60():
+    global block
+    block = "end_portal"
+    fill_world_edit()
+player.on_chat("\\\\end_portal", on_on_chat60)
+
+def on_on_chat61():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 0 replace air")
+player.on_chat("\\\\waypoint_white", on_on_chat61)
+
+def on_on_chat62():
+    global block
+    block = "anvil"
+player.on_chat("\\\\select.anvil", on_on_chat62)
+
+def on_on_chat63():
+    global block
+    block = "basalt"
+player.on_chat("\\\\select.basalt", on_on_chat63)
+
+def on_on_chat64():
+    global block
+    block = "hay_block"
+player.on_chat("\\\\select.hay_block", on_on_chat64)
+
+def on_on_chat65(tempNumber):
+    global _2, _5
+    if tempNumber != 0:
+        formSmallest()
+        clone(world(smallestX, smallestY - tempNumber, smallestZ))
+        _2 += 0 - tempNumber
+        _5 += 0 - tempNumber
+        loops.pause(2)
+        tempNumber = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\copy.down", on_on_chat65)
+
+def on_on_chat66(blockid9):
+    global block
+    block = "stone " + str(blockid9)
+    fill_world_edit()
+player.on_chat("\\\\stone", on_on_chat66)
+
+def on_on_chat67():
+    if _2 > -99:
+        player.execute("particle minecraft:dragon_breath_trail " + str(world(_1, _2 + 1, _3)))
+        player.execute("particle minecraft:endrod " + str(world(_1, _2, _3)))
+    if _5 > -99:
+        player.execute("particle minecraft:villager_happy " + str(world(_4, _5 + 1, _6)))
+        player.execute("particle minecraft:endrod " + str(world(_4, _5, _6)))
+player.on_chat("\\\\particle", on_on_chat67)
+
+def on_on_chat68():
+    global block
+    block = "copper_ore"
+    fill_world_edit()
+player.on_chat("\\\\copper_ore", on_on_chat68)
+
+def on_on_chat69():
+    global block
+    block = "bbb:slate_bricks"
+    fill_world_edit()
+player.on_chat("\\\\slate_bricks", on_on_chat69)
+
+def on_on_chat70():
+    global block
+    block = "furnace"
+player.on_chat("\\\\select.furnace", on_on_chat70)
+
+def on_on_chat71():
+    player.execute("gamemode s")
+player.on_chat("\\\\gms", on_on_chat71)
+
+def on_on_chat72():
+    global block
+    block = "bbb:alternate_dotted_subtle_bricks"
+    fill_world_edit()
+player.on_chat("\\\\alternate_dotted_subtle_bricks", on_on_chat72)
+
+def on_on_chat73():
+    global block
+    block = "bbb:polished_myalite"
+    fill_world_edit()
+player.on_chat("\\\\polished_myalite", on_on_chat73)
+
+def on_on_chat74():
+    global camera
+    if camera == "false":
+        player.execute("replaceitem entity @s slot.armor.chest 0 elytra")
+        player.execute("effect @s slow_falling 99999999 10 true")
+        camera = "true"
+        tellplayer("Camera Mode on, Activate Elytra and hit 'F1' to get cinematic footage")
+    else:
+        player.execute("effect @s slow_falling 0 0 true")
+        tellplayer("Camer Mode off")
+        camera = "false"
+player.on_chat("\\\\camera", on_on_chat74)
+
+def on_on_chat75():
+    global block
+    block = "copper_block"
+player.on_chat("\\\\select.copper_block", on_on_chat75)
+
+def on_item_interacted_shears():
+    cut(pos(0, 0, 0))
+player.on_item_interacted(SHEARS, on_item_interacted_shears)
+
+def on_on_chat76():
+    global block
+    block = "calcite"
+    fill_world_edit()
+player.on_chat("\\\\calcite", on_on_chat76)
+
+def on_on_chat77():
+    global block
+    block = "deepslate"
+    fill_world_edit()
+player.on_chat("\\\\deepslate", on_on_chat77)
+
+def on_on_chat78():
+    global block
+    block = "stone 3"
+player.on_chat("\\\\select.diorite", on_on_chat78)
+
+# Lists Current Block
+
+def on_on_chat79():
+    global block_text_mask
+    # If "block" contains an underscore separate "block" and set that to "block_text_mask"
+    if block.includes("_"):
+        block_text_mask = "" + block.split("_")[0] + " " + block.split("_")[1]
+        # execute command tellraw containing "block_text_mask"
+        player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"§bWE§r :§b Selected Block is §a" + block_text_mask + "\"}]}")
+    else:
+        # execute command tellraw containing "block" if it doesn't contain "_"
+        player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"§bWE§r :§b Selected Block is §a" + block + "\"}]}")
+player.on_chat("\\\\list.block", on_on_chat79)
+
+def on_on_chat80(tempNumber2):
+    global _1, _4
+    if tempNumber2 != 0:
+        formSmallest()
+        cut(world(smallestX + tempNumber2, smallestY, smallestZ))
+        _1 += tempNumber2
+        _4 += tempNumber2
+        tempNumber2 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\east", on_on_chat80)
+
+def on_on_chat81():
+    global block
+    block = "deepslate"
+player.on_chat("\\\\select.deepslate", on_on_chat81)
+
+def on_on_chat82():
+    global block
+    block = "gravel"
+player.on_chat("\\\\select.gravel", on_on_chat82)
+
+def on_on_chat83():
+    global block
+    block = "bbb:andesite_bricks"
+    fill_world_edit()
+player.on_chat("\\\\andesite_bricks", on_on_chat83)
+
+def on_on_chat84(blockid10):
+    global block
+    block = "concrete " + str(blockid10)
+player.on_chat("\\\\select.concrete", on_on_chat84)
+
+def formLargest():
+    global largestX, largestY, largestZ
+    if _1 < _4:
+        largestX = _4
+    else:
+        largestX = _1
+    if _2 < _5:
+        largestY = _5
+    else:
+        largestY = _2
+    if _3 < _6:
+        largestZ = _6
+    else:
+        largestZ = _3
+
+def on_on_chat85():
+    global block
+    block = "hopper"
+    fill_world_edit()
+player.on_chat("\\\\hopper", on_on_chat85)
+
+def on_item_interacted_oak_door():
+    agent.teleport_to_player()
+player.on_item_interacted(OAK_DOOR, on_item_interacted_oak_door)
+
+def on_on_chat86():
+    global block
+    block = "glowstone"
+player.on_chat("\\\\select.glowstone", on_on_chat86)
+
+def on_on_chat87(blockid11):
+    global block
+    block = "end_portal_frame " + str(blockid11)
+player.on_chat("\\\\select.end_portal_frame", on_on_chat87)
+
+def on_on_chat88():
+    global block
+    block = "hopper"
+player.on_chat("\\\\select.hopper", on_on_chat88)
+
+def on_on_chat89():
+    global block
+    block = "bbb:slate"
+player.on_chat("\\\\select.slate", on_on_chat89)
+
+def on_on_chat90():
+    global block
+    block = "crying_obsidian"
+    fill_world_edit()
+player.on_chat("\\\\crying_obsidian", on_on_chat90)
+
+def on_on_chat91(blockid12):
+    global block
+    block = "stone " + str(blockid12)
+player.on_chat("\\\\select.stone", on_on_chat91)
+
+def on_on_chat92(blockid13):
+    global block
+    block = "stonebrick " + str(blockid13)
+    fill_world_edit()
+player.on_chat("\\\\stonebrick", on_on_chat92)
+
+def on_on_chat93():
+    global block
+    block = "brick_block"
+    fill_world_edit()
+player.on_chat("\\\\brick_block", on_on_chat93)
+
+def on_on_chat94():
+    cut(pos(0, 0, 0))
+player.on_chat("\\\\cut", on_on_chat94)
+
+def on_on_chat95():
+    global block
+    block = "glass"
+player.on_chat("\\\\select.glass", on_on_chat95)
+
+def on_on_chat96():
+    global block
+    block = "bbb:dotted_subtle_bricks"
+player.on_chat("\\\\select.dotted_subtle_bricks", on_on_chat96)
+
+def on_on_chat97():
+    global block
+    block = "copper_block"
+    fill_world_edit()
+player.on_chat("\\\\copper_block", on_on_chat97)
+
+def on_on_chat98():
+    global block
+    block = "dirt"
+    fill_world_edit()
+player.on_chat("\\\\dirt", on_on_chat98)
+
+def on_on_chat99():
+    global block
+    block = "glowstone"
+    fill_world_edit()
+player.on_chat("\\\\glowstone", on_on_chat99)
+
+def on_on_chat100():
+    formSmallest()
+    tellplayer("§6The smallest values of each dimension within the selected area is: " + str(world(smallestX, smallestY, smallestZ)))
+player.on_chat("\\\\form_smallest_debug", on_on_chat100)
+
+def on_on_chat101():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 9 replace air")
+player.on_chat("\\\\waypoint_cyan", on_on_chat101)
+
+def fill_world_edit():
+    global blockid37
+    # I've updated the code to split fill functions into two different fill commands so the maximum area that can be filled goes from 32k, two 64k
+    if _5 > _2:
+        # Tests if difference of the two selected y coordinates is even
+        if (_5 - _2) / 2 == Math.round(_5 - _2):
+            # First fill command
+            # Finds middle ground and sets it to second y coordinate
+            player.execute("fill " + str(_1) + (" " + str(_2)) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(((_5 - _2) / 2 + _2))) + (" " + str(_6) + (" " + block)))
+            # Second fill command
+            # Finds middle ground and sets it to first y coordinate
+            player.execute("fill " + str(_1) + (" " + str(((_5 - _2) / 2 + _2))) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(_5)) + (" " + str(_6) + (" " + block)))
+        else:
+            # Else if(odd), first fill command
+            # Does the same thing as even, except it adds one so it makes the number even, so it can be divided into two to make a middle ground
+            player.execute("fill " + str(_1) + (" " + str(_2)) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(((_5 - _2 + 1) / 2 + _2))) + (" " + str(_6) + (" " + block)))
+            # Else if(odd), second fill command
+            player.execute("fill " + str(_1) + (" " + str(((_5 - _2 + 1) / 2 + _2))) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(_5)) + (" " + str(_6) + (" " + block)))
+    else:
+        # Basically the same as before except if the second selected y coordinate is smaller than the first
+        if _5 < _2:
+            if (_2 - _5) / 2 == Math.round(_2 - _5):
+                player.execute("fill " + str(_1) + (" " + str(_2)) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(((_2 - _5) / 2 + _5))) + (" " + str(_6) + (" " + block)))
+                player.execute("fill " + str(_1) + (" " + str(((_2 - _5) / 2 + _5))) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(_5)) + (" " + str(_6) + (" " + block)))
+            else:
+                player.execute("fill " + str(_1) + (" " + str(_2)) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(((_2 - _5 + 1) / 2 + _5))) + (" " + str(_6) + (" " + block)))
+                player.execute("fill " + str(_1) + (" " + str(((_2 - _5 + 1) / 2 + _5))) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(_5)) + (" " + str(_6) + (" " + block)))
+        else:
+            # The same command as the fill command from before this new system this is if the two y coordinates are the same
+            if _2 == _5:
+                player.execute("fill " + str(_1) + (" " + str(_2)) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(_5)) + (" " + str(_6) + (" " + block)))
+                blockid37 = 0
+
+def on_on_chat102():
+    global block
+    block = "gold_ore"
+    fill_world_edit()
+player.on_chat("\\\\gold_ore", on_on_chat102)
+
+def on_on_chat103():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 1 replace air")
+player.on_chat("\\\\waypoint_orange", on_on_chat103)
+
+def on_on_chat104():
+    global block
+    block = "basalt"
+    fill_world_edit()
+player.on_chat("\\\\basalt", on_on_chat104)
+
+def on_on_chat105():
+    global block
+    block = "glass_pane"
+player.on_chat("\\\\select.glass_pane", on_on_chat105)
+
+def on_on_chat106():
+    global block
+    block = "bbb:rocky_stone"
+player.on_chat("\\\\select.rocky_stone", on_on_chat106)
+
+def on_on_chat107():
+    global block
+    block = "ice"
+    fill_world_edit()
+player.on_chat("\\\\ice", on_on_chat107)
+
+def on_on_chat108(tempNumber3):
+    global _2, _5
+    if tempNumber3 != 0:
+        formSmallest()
+        cut(world(smallestX, smallestY - tempNumber3, smallestZ))
+        _2 += 0 - tempNumber3
+        _5 += 0 - tempNumber3
+        tempNumber3 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\down", on_on_chat108)
+
+def fill_replace(replaces: str):
+    global block
+    if not (block.includes(" ")):
+        block = "" + block + " 0"
+    # First fill command
+    player.execute("fill " + str(_1) + (" " + str(_2)) + (" " + str(_3)) + (" " + str(_4)) + (" " + str(_5)) + (" " + str(_6) + (" " + block + " replace " + replaces)))
+
+def on_on_chat109():
+    global block
+    block = "sand"
+    fill_world_edit()
+player.on_chat("\\\\sand", on_on_chat109)
+
+def on_on_chat110():
+    global block
+    block = "soul_sand"
+player.on_chat("\\\\select.soul_sand", on_on_chat110)
+
+def on_on_chat111():
+    global block
+    block = "end_stone"
+player.on_chat("\\\\select.end_stone", on_on_chat111)
+
+def on_on_chat112():
+    global block
+    block = "bbb:slate_bricks"
+player.on_chat("\\\\select.slate_bricks", on_on_chat112)
+
+def on_on_chat113():
+    player.execute("gamemode a")
+player.on_chat("\\\\gma", on_on_chat113)
+
+def on_on_chat114():
+    player.execute("give @p wooden_axe")
+    player.execute("give @p redstone_torch")
+    player.execute("give @p dye 1 19")
+    player.execute("give @p shears")
+    player.execute("give @p paper")
+    mobs.give(mobs.target(NEAREST_PLAYER), LAVA_BUCKET, 1)
+    mobs.give(mobs.target(NEAREST_PLAYER), WATER_BUCKET, 1)
+    mobs.give(mobs.target(NEAREST_PLAYER), COMPASS, 1)
+    player.execute("give @s nether_star")
+    player.execute("give @s wooden_door 1")
+player.on_chat("allwetools", on_on_chat114)
+
+def on_on_chat115():
+    global block
+    block = "bedrock"
+player.on_chat("\\\\select.bedrock", on_on_chat115)
+
+def on_on_chat116(blockid14):
+    global block
+    block = "wood " + str(blockid14)
+player.on_chat("\\\\select.wood", on_on_chat116)
+
+def on_on_chat117():
+    player.execute("time set day")
+    player.execute("weather clear")
+    player.execute("gamerule doweathercycle false")
+    player.execute("gamerule dodaylightcycle false")
+player.on_chat("\\\\less", on_on_chat117)
+
+def on_on_chat118():
+    global block
+    block = "ice"
+player.on_chat("\\\\select.ice", on_on_chat118)
+
+def on_on_chat119():
+    global block
+    block = "hardened_clay"
+player.on_chat("\\\\select.terracotta", on_on_chat119)
+
+def on_on_chat120(blockid15):
+    global block
+    block = "concrete " + str(blockid15)
+    fill_world_edit()
+player.on_chat("\\\\concrete", on_on_chat120)
+
+def on_on_chat121():
+    global block
+    block = "diamond_ore"
+player.on_chat("\\\\select.diamond_ore", on_on_chat121)
+
+def on_item_interacted():
+    global block
+    block = "air"
+    tellplayer("Set Block To Air")
+    player.run_chat_command("\\\\fill")
+player.on_item_interacted(blocks.block_with_data(INK_SAC, 19), on_item_interacted)
+
+def on_on_chat122():
+    global block
+    block = "dirt"
+player.on_chat("\\\\select.dirt", on_on_chat122)
+
+def on_on_chat123():
+    global block
+    block = "bbb:slate"
+    fill_world_edit()
+player.on_chat("\\\\slate", on_on_chat123)
+
+def on_on_chat124():
+    formSmallest()
+    formLargest()
+    tellplayer("§6The slope of position 1 and position 2 -  m(y/x) = " + str((largestY - smallestY) / (largestX - smallestX)))
+player.on_chat("\\\\slope_positions_debug", on_on_chat124)
+
+def on_on_chat125():
+    global block
+    block = "gold_ore"
+player.on_chat("\\\\select.gold_ore", on_on_chat125)
+
+def on_on_chat126():
+    global block
+    block = "tnt"
+    fill_world_edit()
+player.on_chat("\\\\tnt", on_on_chat126)
+
+def on_on_chat127(blockid16):
+    global block
+    block = "quartz_block " + str(blockid16)
+    fill_world_edit()
+player.on_chat("\\\\quartz_block", on_on_chat127)
+
+def on_on_chat128():
+    global block
+    block = "sponge"
+player.on_chat("\\\\select.sponge", on_on_chat128)
+
+def on_on_chat129():
+    tellplayer("§2World Edit Config: Type '(Config Subject) [0(True) or 1(False) or(INT)]")
+    tellplayer("§2--------------------------")
+    tellplayer("§2Config (INT): BrushDistance")
+    tellplayer("§2Config (0/1): GiveBrushOnSetup")
+player.on_chat("WEconfig", on_on_chat129)
+
+def on_item_interacted_redstone_torch():
+    tellplayer("Successfully Filled")
+    player.run_chat_command("\\\\fill")
+player.on_item_interacted(REDSTONE_TORCH, on_item_interacted_redstone_torch)
+
+def on_on_chat130():
+    global block
+    block = "hay_block"
+    fill_world_edit()
+player.on_chat("\\\\hay_block", on_on_chat130)
+
+def tellplayer(text: str):
+    player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"" + text + "\"}]}")
+
+def on_on_chat131():
+    global block
+    block = "fire"
+    fill_world_edit()
+player.on_chat("\\\\fire", on_on_chat131)
+
+def on_on_chat132():
+    fill_replace("water")
+player.on_chat("\\\\fill.replace_water", on_on_chat132)
+
+def on_on_chat133():
+    global block
+    block = "netherrack"
+    fill_world_edit()
+player.on_chat("\\\\netherrack", on_on_chat133)
+
+def on_on_chat134():
+    global block
+    block = "bbb:myalite"
+    fill_world_edit()
+player.on_chat("\\\\myalite", on_on_chat134)
+
+def on_on_chat135(tempNumber4):
+    global _1, _4
+    formSmallest()
+    clone(world(smallestX + tempNumber4, smallestY, smallestZ))
+    _1 += tempNumber4
+    _4 += tempNumber4
+player.on_chat("\\\\copy.east", on_on_chat135)
+
+def on_on_chat136():
+    global block
+    block = "bbb:diorite_bricks"
+player.on_chat("\\\\select.diorite_bricks", on_on_chat136)
+
+def on_on_chat137():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 12 replace air")
+player.on_chat("\\\\waypoint_brown", on_on_chat137)
+
+def on_on_chat138():
+    global block
+    block = "beacon"
+player.on_chat("\\\\select.beacon", on_on_chat138)
+
+def on_on_chat139():
+    global block
+    block = "emerald_ore"
+    fill_world_edit()
+player.on_chat("\\\\emerald_ore", on_on_chat139)
+
+def on_item_interacted_compass():
+    player.execute("teleport @s @r[name=!" + player.name() + "]")
+player.on_item_interacted(COMPASS, on_item_interacted_compass)
+
+def on_on_chat140():
+    global block
+    block = "glass"
+    fill_world_edit()
+player.on_chat("\\\\glass", on_on_chat140)
+
+def on_on_chat141():
+    player.execute("teleport @s " + str(world(randint(-5000, 5000), 80, randint(-5000, 5000))))
+player.on_chat("\\\\wild", on_on_chat141)
+
+def on_on_chat142():
+    global block
+    block = "raw_gold_block"
+player.on_chat("\\\\select.raw_gold_block", on_on_chat142)
+
+def on_on_chat143():
+    tellplayer("§a--------------------------")
+    tellplayer("§dWorld Edit = Blocks")
+    tellplayer("§aHere are some reminders of block-related commands")
+    tellplayer("§aUse '\\\\\\\\fill' to fill your selected area with your selected block")
+    tellplayer("§aUse '\\\\\\\\copy' to copy your selected area to your feet, specifically the lower bound x,y,z will be position at your feet")
+    tellplayer("§aUse '\\\\\\\\cut' just like '\\\\\\\\copy' but removeing the original selected area on move")
+    tellplayer("§aUse '\\\\\\\\fill.replace_ground' just like '\\\\\\\\fill' but it only replaces the ground")
+    tellplayer("§aUse '\\\\\\\\fill.replace_water' just like '\\\\\\\\fill' but it only replaces the water")
+    tellplayer("§aUse '\\\\\\\\fill.replace_air' just like '\\\\\\\\fill' but it only replaces the air")
+    tellplayer("§aUse '\\\\\\\\list.block' to remind yourself of your current block (your block clipboard)")
+    tellplayer("§a--------------------------")
+    tellplayer("§aYou can utilize World Edit waypoints to colour code and mark important locations")
+    tellplayer("§aYou can use waypoints by executing the '\\\\\\\\waypoint_colour' command")
+    tellplayer("§aE.g. '\\\\\\\\waypoint_orange' will create a waypoint(pillar) at your location spanning 100 blocks in the air")
+    tellplayer("§aYou can delete the waypoint by right-clicking on a Nether Star near the waypoint desired for removal")
+    tellplayer("§g!Don't use near other wool structures, otherwise they may be destroyed in the removal process!")
+    tellplayer("§a--------------------------")
+    tellplayer("§aBrushes are an advanced tool that allows you to sculpt terrain and other structures")
+    tellplayer("§aBrushes also have configurations, more information is available through the 'WeConfig' command")
+    tellplayer("§aBrushes can be created through the '\\\\\\\\brush [brush size]' command and the user specifies the brush radius")
+    tellplayer("§aBrushes become the current selected block when finished")
+    tellplayer("§g!The Brush Tool Does Not Support Gravity Blocks!")
+    tellplayer("§aBrushes can take a while to create, once created a brush(Diamond Shovel) will be given to you")
+    tellplayer("§aRight-click to use the brush")
+    tellplayer("§a--------------------------")
+    tellplayer("§aYour block not supported by the '\\\\\\\\block' and the '\\\\\\\\select.block' commands?")
+    tellplayer("§aWell not to worry, although more tedious than the traditional commmands you can use agent fill commands")
+    tellplayer("§aThese allow for any block of your choosing and also allow your to create a pallet of sorts")
+    tellplayer("§aYou need to first collect your desired pallet-blocks and place them into your inventory")
+    tellplayer("§aYou next need to drag each of those blocks into a seperate slot within your agents inventory")
+    tellplayer("§aYour agent not here? Try the '\\\\\\\\agentcall' command to teleport your agent to you")
+    tellplayer("§aYou can use the '\\\\\\\\fill.custom [agent slot no.] [block data] to fill utilizing your agents pallet of blocks'")
+    tellplayer("§aYou need to specify the agent slot you wish to be utilizing and (optionally) you can specify the block data")
+    tellplayer("§aE.g. '\\\\\\\\fill.custom 1' will grab the block in the first inventory slot of your agent, this may hardened clay or purpur columns")
+    tellplayer("§a--------------------------")
+player.on_chat("WeBlocks", on_on_chat143)
+
+def on_on_chat144():
+    global block
+    block = "brick_block"
+player.on_chat("\\\\select.brick_block", on_on_chat144)
+
+def on_on_chat145():
+    global block
+    block = "stone 2"
+player.on_chat("\\\\select.polished_granite", on_on_chat145)
+
+def on_on_chat146():
+    global block
+    block = "slime"
+    fill_world_edit()
+player.on_chat("\\\\slime", on_on_chat146)
+
+def on_on_chat147():
+    global block
+    block = "brick_block"
+player.on_chat("\\\\select.bricks", on_on_chat147)
+
+def on_on_chat148():
+    global block
+    block = "redstone_ore"
+    fill_world_edit()
+player.on_chat("\\\\redstone_ore", on_on_chat148)
+
+def on_on_chat149(blockid17):
+    global block
+    block = "wool " + str(blockid17)
+player.on_chat("\\\\select.wool", on_on_chat149)
+
+def on_on_chat150():
+    global block
+    block = "brick_block"
+    fill_world_edit()
+player.on_chat("\\\\bricks", on_on_chat150)
+
+def on_on_chat151(tempNumber5):
+    global _1, _4
+    if tempNumber5 != 0:
+        formSmallest()
+        cut(world(smallestX - tempNumber5, smallestY, smallestZ))
+        _1 += 0 - tempNumber5
+        _4 += 0 - tempNumber5
+        tempNumber5 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\west", on_on_chat151)
+
+def on_on_chat152():
+    global block
+    block = "quartz_block 3"
+    fill_world_edit()
+player.on_chat("\\\\smooth_quartz", on_on_chat152)
+
+def on_on_chat153():
+    global block
+    block = "stone 4"
+    fill_world_edit()
+player.on_chat("\\\\polished_diorite", on_on_chat153)
+
+def on_on_chat154():
+    global block
+    block = "slime"
+player.on_chat("\\\\select.slime", on_on_chat154)
+
+def on_on_chat155():
+    global block
+    block = "barrier"
+player.on_chat("\\\\select.barrier", on_on_chat155)
+
+def on_on_chat156():
+    global block
+    block = "coal_block"
+player.on_chat("\\\\select.coal_block", on_on_chat156)
+
+def on_on_chat157():
+    global block
+    block = "bbb:shale_bricks"
+player.on_chat("\\\\select.shale_bricks", on_on_chat157)
+
+def on_on_chat158():
+    global block
+    block = "snow"
+    fill_world_edit()
+player.on_chat("\\\\snow", on_on_chat158)
+
+def on_on_chat159():
+    global block
+    block = "brick_block"
+player.on_chat("\\\\select.brick", on_on_chat159)
+
+def on_on_chat160():
+    global block
+    block = "crying_obsidian"
+player.on_chat("\\\\select.crying_obsidian", on_on_chat160)
+
+def on_on_chat161(tempNumber6):
+    global _3, _6
+    if tempNumber6 != 0:
+        formSmallest()
+        cut(world(smallestX, smallestY, smallestZ + tempNumber6))
+        _3 += tempNumber6
+        _6 += tempNumber6
+        tempNumber6 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\south", on_on_chat161)
+
+def on_on_chat162():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 4 replace air")
+player.on_chat("\\\\waypoint_yellow", on_on_chat162)
+
+def on_on_chat163():
+    global block
+    block = "bbb:polished_jasper"
+    fill_world_edit()
+player.on_chat("\\\\polished_jasper", on_on_chat163)
+
+def on_on_chat164():
+    global block
+    block = "obsidian"
+player.on_chat("\\\\select.obsidian", on_on_chat164)
+
+def on_on_chat165():
+    player.run_chat_command("WeHelp")
+player.on_chat("\\\\?", on_on_chat165)
+
+def on_on_chat166():
+    global block
+    block = "bone_block"
+    fill_world_edit()
+player.on_chat("\\\\bone_block", on_on_chat166)
+
+def on_on_chat167(number):
+    player.execute("gamerule randomtickspeed " + str(number))
+player.on_chat("\\\\tickspeed", on_on_chat167)
+
+def on_on_chat168():
+    global block
+    block = "stone 6"
+    fill_world_edit()
+player.on_chat("\\\\polished_andesite", on_on_chat168)
+
+def on_on_chat169(blockid18):
+    global block
+    block = "stained_hardened_clay " + str(blockid18)
+player.on_chat("\\\\select.stained_terracotta", on_on_chat169)
+
+def on_on_chat170():
+    global block
+    block = "netherite_block"
+player.on_chat("\\\\select.netherite_block", on_on_chat170)
+
+def on_on_chat171():
+    global block
+    block = "water"
+    fill_world_edit()
+player.on_chat("\\\\water", on_on_chat171)
+
+def on_on_chat172(tempNumber7):
+    global _3, _6
+    if tempNumber7 != 0:
+        formSmallest()
+        cut(world(smallestX, smallestY, smallestZ - tempNumber7))
+        _3 += 0 - tempNumber7
+        _6 += 0 - tempNumber7
+        tempNumber7 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\north", on_on_chat172)
+
+def on_on_chat173():
+    tellplayer("§6Distance => x : " + str((_4 - _1)) + " y : " + str((_5 - _2)) + " z : " + str((_6 - _3)))
+player.on_chat("\\\\distance", on_on_chat173)
+
+def on_on_chat174():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 15 replace air")
+player.on_chat("\\\\waypoint_black", on_on_chat174)
+
+def on_on_chat175(tempNumber8):
+    global _3, _6
+    if tempNumber8 != 0:
+        formSmallest()
+        clone(world(smallestX, smallestY, smallestZ - tempNumber8))
+        _3 += 0 - tempNumber8
+        _6 += 0 - tempNumber8
+        loops.pause(2)
+        tempNumber8 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\copy.north", on_on_chat175)
+
+def on_on_chat176():
+    global block
+    block = "bbb:polished_slate"
+player.on_chat("\\\\select.polished_slate", on_on_chat176)
+
+def on_on_chat177():
+    global block
+    block = "bbb:limestone_bricks"
+player.on_chat("\\\\select.limestone_bricks", on_on_chat177)
+
+def on_on_chat178():
+    tellplayer("§bSelected Positions - §dPosition 1: " + str(world(_1, _2, _3)) + " §aPosition 2: " + str(world(_4, _5, _6)))
+player.on_chat("\\\\list_positions", on_on_chat178)
+
+def on_forever():
+    if invanish == "true":
+        player.execute("replaceitem entity @s slot.weapon.mainhand 0 air")
+    if harmingheadbut == "true":
+        player.execute("kill @e[r=2,name=!" + player.name() + "]")
+loops.forever(on_forever)
+
+def on_forever2():
+    player.run_chat_command("\\\\particle")
+loops.forever(on_forever2)
+
+def on_on_chat179():
+    global block
+    block = "emerald_ore"
+player.on_chat("\\\\select.emerald_ore", on_on_chat179)
+
+def on_on_chat180():
+    global block
+    block = "bbb:subtle_bricks"
+player.on_chat("\\\\select.subtle_bricks", on_on_chat180)
+
+def on_on_chat181(brush_size):
+    global brush_radius
+    agent.teleport_to_player()
+    brush_radius = brush_size
+    if brush_radius < 20:
+        player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"Setting Up Brush....\"}]}")
+        if brush_radius > 10:
+            player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"§6[!]:Your Brush Is Greater Than 10, This May Take A While...\"}]}")
+        player.execute("/fill 15 165 15 -15 135 -15 air")
+        if brush_radius > 2:
+            shapes.sphere(blocks.block_by_name("sponge"),
+                world(0, 150, 0),
+                brush_radius + 1,
+                ShapeOperation.REPLACE)
+        else:
+            shapes.sphere(blocks.block_by_name("sponge"),
+                world(0, 150, 0),
+                brush_radius,
+                ShapeOperation.REPLACE)
+        if block.includes(" "):
+            player.execute("/fill 30 180 30 0 150 0 " + block + " replace sponge")
+            player.execute("/fill -30 182 30 0 150 0 " + block + " replace sponge")
+            player.execute("/fill -30 180 -30 0 150 0 " + block + " replace sponge")
+            player.execute("/fill 30 180 -30 0 150 0 " + block + " replace sponge")
+            player.execute("/fill 30 120 30 0 150 0 " + block + " replace sponge")
+            player.execute("/fill -30 120 30 0 150 0 " + block + " replace sponge")
+            player.execute("/fill -30 120 -30 0 150 0 " + block + " replace sponge")
+            player.execute("/fill 30 120 -30 0 150 0 " + block + " replace sponge")
+        else:
+            player.execute("/fill 30 180 30 0 150 0 " + block + " 0 replace sponge")
+            player.execute("/fill -30 180 30 0 150 0 " + block + " 0 replace sponge")
+            player.execute("/fill -30 180 -30 0 150 0 " + block + " 0 replace sponge")
+            player.execute("/fill 30 180 -30 0 150 0 " + block + " 0 replace sponge")
+            player.execute("/fill 30 120 30 0 150 0 " + block + " 0 replace sponge")
+            player.execute("/fill -30 120 30 0 150 0 " + block + " 0 replace sponge")
+            player.execute("/fill -30 120 -30 0 150 0 " + block + " 0 replace sponge")
+            player.execute("/fill 30 120 -30 0 150 0 " + block + " 0 replace sponge")
+        player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"Brush Config Complete\"}]}")
+        if Give_Brush_On_Setup == "true":
+            player.execute("give @s diamond_shovel")
+    else:
+        player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"§cCannot Make A Brush Over 20 blocks, besides it would take forever\"}]}")
+player.on_chat("\\\\brush", on_on_chat181)
+
+def on_item_interacted_sugar():
+    blocks.fill(AIR, pos(4, -4, 4), pos(-4, 4, -4), FillOperation.REPLACE)
+player.on_item_interacted(SUGAR, on_item_interacted_sugar)
+
+def on_on_chat182(tempNumber9):
+    global _3, _6
+    if tempNumber9 != 0:
+        formSmallest()
+        clone(world(smallestX, smallestY, smallestZ + tempNumber9))
+        _3 += tempNumber9
+        _6 += tempNumber9
+        loops.pause(2)
+        tempNumber9 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\copy.south", on_on_chat182)
+
+def on_on_chat183():
+    global block
+    block = "bbb:blackstone_bricks"
+player.on_chat("\\\\select.blackstone_bricks", on_on_chat183)
+
+def on_on_chat184():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 7 replace air")
+player.on_chat("\\\\waypoint_grey", on_on_chat184)
+
+def on_on_chat185(blockid19):
+    global block
+    block = "planks " + str(blockid19)
+    fill_world_edit()
+player.on_chat("\\\\planks", on_on_chat185)
+
+def on_on_chat186():
+    global block
+    block = "redstone_block"
+    fill_world_edit()
+player.on_chat("\\\\redstone_block", on_on_chat186)
+
+def on_on_chat187():
+    global block
+    block = "coal_ore"
+player.on_chat("\\\\select.coal_ore", on_on_chat187)
+
+def on_on_chat188():
+    global block
+    block = "bbb:polished_myalite"
+player.on_chat("\\\\select.polished_myalite", on_on_chat188)
+
+def on_on_chat189():
+    global block
+    block = "quartz_block 3"
+player.on_chat("\\\\select.smooth_quartz", on_on_chat189)
+
+def on_on_chat190():
+    global block
+    block = "bbb:myalite"
+player.on_chat("\\\\select.myalite", on_on_chat190)
+
+def on_on_chat191():
+    global block
+    block = "soul_sand"
+    fill_world_edit()
+player.on_chat("\\\\soul_sand", on_on_chat191)
+
+def on_on_chat192():
+    tellplayer("§d--------------------------")
+    tellplayer("§d§lThere are some special commands that you can use in World Edit")
+    tellplayer("§dYou can use '\\\\\\\\vanish' to toggle invisibility")
+    tellplayer("§dYou can use '\\\\\\\\headbutt' to toggle Harming Headbutt, that kills all animals in a radius of 1.5 blocks")
+    tellplayer("§dYou can use '\\\\\\\\onehit' to toggle One hit, that gives you an obsene amount of strength, enough to one shot the Ender Dragon and your friend in netherite armor")
+    tellplayer("§dYou can use '\\\\\\\\camera' to toggle camera mode, that allows for a quick transition into a cinamiatic filming mode")
+    tellplayer("§dYou can use '\\\\\\\\nightvis' to toggle night vision")
+    tellplayer("§d--------------------------")
+player.on_chat("WeSpecial", on_on_chat192)
+
+def on_on_chat193():
+    clone(pos(0, 0, 0))
+player.on_chat("\\\\copy", on_on_chat193)
+
+def on_on_chat194():
+    global block
+    block = "crafting_table"
+player.on_chat("\\\\select.crafting_table", on_on_chat194)
+
+def on_on_chat195():
+    global block
+    block = "coal_ore"
+    fill_world_edit()
+player.on_chat("\\\\coal_ore", on_on_chat195)
+
+def on_on_chat196():
+    global block
+    block = "bone_block"
+player.on_chat("\\\\select.bone_block", on_on_chat196)
+
+def on_on_chat197(tempNumber10):
+    global _1, _4
+    if tempNumber10 != 0:
+        formSmallest()
+        clone(world(smallestX - tempNumber10, smallestY, smallestZ))
+        _1 += 0 - tempNumber10
+        _4 += 0 - tempNumber10
+        loops.pause(2)
+        tempNumber10 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\copy.west", on_on_chat197)
+
+def on_on_chat198():
+    tellplayer("§6--------------------------")
+    tellplayer("§6Use the chat command 'WeTools' for the basic World Edit tools")
+    tellplayer("§6Most chat commands start with '\\\\\\\\' except for the world edit basic commands")
+    tellplayer("§dWorld Edit greatly benefits and becomes more powerful with the knowledge of 3D space and coordinates")
+    tellplayer("§dDon't worry, if you have been playing Minecraft and or been using commands you should have decent knowledge already")
+    tellplayer("§6Use the wooden axe to select two positions")
+    tellplayer("§6(These two positions are selected from your feet NOT from where you are looking)")
+    tellplayer("§6These two positions then are used to create a rectangular prism of your selected area")
+    tellplayer("§6Think of the two positions as corners to your prism")
+    tellplayer("§6With one of your two positions defining the UPPER bound x,y,z coordinates")
+    tellplayer("§6And one of your two positions defining the LOWER bound x,y,z coordinates")
+    tellplayer("§6All upper or lower bound definitions do not have to be on one position")
+    tellplayer("§6E.g. Position 1 defining the upper x, lower y, and upper z")
+    tellplayer("§6and Position 2 defining the lower x, upper y, and lower z")
+    tellplayer("§6Here is a visualisation:")
+    tellplayer("§6--------------------------")
+    tellplayer("                                 §6|")
+    tellplayer("§7      §a+-----§7-------+       §6|")
+    tellplayer("§a     /   §7           / |        §6|")
+    tellplayer("§7   +----------+   |         §6|")
+    tellplayer("§7   |            |   +         §6|")
+    tellplayer("§7   |            |  §d/           §6|")
+    tellplayer("§7   +-----§d-----+              §6|")
+    tellplayer("                                 §6|")
+    tellplayer("§6--------------------------")
+    tellplayer("§6Select a block to your block clipboard using the '\\\\\\\\select.block' format")
+    tellplayer("§6E.g. '\\\\\\\\block.dirt'")
+    tellplayer("§6After the command you can add a space and then a block data to select that variation of the block")
+    tellplayer("§6E.g. '\\\\\\\\block.wool 10'")
+    tellplayer("§6(Not all blocks can be selected, if your block is not available see our help section on agent fills)")
+    tellplayer("§6Next use your Redstone Torch or use the '\\\\\\\\fill' command to fill your selected area with the block attached to your clipboard")
+    tellplayer("§6You can use your Wooden Axe again to select an area and you can either override your clipboard with '\\\\\\\\select' command or continue with your previous block")
+    tellplayer("§6Instead of using '\\\\\\\\select.block' and then using '\\\\\\\\fill' you can use \\\\\\\\block to do both ")
+    tellplayer("§6E.g. using '\\\\\\\\water' will both select water to your clipboard and also then fill your selected area")
+    tellplayer("§6Instead of using your Redstone Torch or '\\\\\\\\fill' your can use different actions")
+    tellplayer("§6'\\\\\\\\copy' or using your Paper will copy the selected area to your feet")
+    tellplayer("§6'\\\\\\\\cut' or using your Shears will cut the selected area to your feet")
+    tellplayer("§6(cutting or copying results in the lower bound x,y,z corner of your selected area to be at your feet)")
+    tellplayer("§6--------------------------")
+player.on_chat("WeBasics", on_on_chat198)
+
+def on_on_chat199():
+    global block
+    block = "redstone_block"
+player.on_chat("\\\\select.redstone_block", on_on_chat199)
+
+def on_on_chat200():
+    global block
+    block = "netherite_block"
+    fill_world_edit()
+player.on_chat("\\\\netherite_block", on_on_chat200)
+
+def on_on_chat201():
+    global onehit
+    if onehit == "false":
+        player.execute("effect @s strength 999999 20 true")
+        onehit = "true"
+        tellplayer("One Hit on")
+    else:
+        player.execute("effect @s strength 0 25 true")
+        onehit = "false"
+        tellplayer("One Hit off")
+player.on_chat("\\\\onehit", on_on_chat201)
+
+def on_on_chat202():
+    global block
+    block = "stone 3"
+    fill_world_edit()
+player.on_chat("\\\\diorite", on_on_chat202)
+
+def on_on_chat203():
+    global block
+    block = "bbb:granite_bricks"
+player.on_chat("\\\\select.granite_bricks", on_on_chat203)
+
+def on_on_chat204():
+    global block
+    block = "iron_block"
+player.on_chat("\\\\select.iron_block", on_on_chat204)
+
+def on_on_chat205():
+    global block
+    block = "water"
+player.on_chat("\\\\select.water", on_on_chat205)
+
+def on_on_chat206(blockid20):
+    global block
+    block = "fence " + str(blockid20)
+    fill_world_edit()
+player.on_chat("\\\\fence", on_on_chat206)
+
+def on_on_chat207():
+    global block
+    block = "bbb:granite_bricks"
+    fill_world_edit()
+player.on_chat("\\\\granite_bricks", on_on_chat207)
+
+def on_on_chat208():
+    global block
+    block = "bbb:polished_shale"
+    fill_world_edit()
+player.on_chat("\\\\polished_shale", on_on_chat208)
+
+def on_on_chat209():
+    global block
+    block = "bbb:diorite_bricks"
+    fill_world_edit()
+player.on_chat("\\\\diorite_bricks", on_on_chat209)
+
+def on_on_chat210():
+    global block
+    block = "bbb:shale"
+    fill_world_edit()
+player.on_chat("\\\\shale", on_on_chat210)
+
+def on_on_chat211(config_test):
+    global brush_distance
+    brush_distance = config_test
+    tellplayer("§dBrush Distance Set To:[" + str(brush_distance) + "]")
+player.on_chat("BrushDistance", on_on_chat211)
+
+def on_on_chat212(blockid21):
+    global block
+    block = "stained_glass " + str(blockid21)
+    fill_world_edit()
+player.on_chat("\\\\stained_glass", on_on_chat212)
+
+def on_on_chat213():
+    global block
+    block = "sponge"
+    fill_world_edit()
+player.on_chat("\\\\sponge", on_on_chat213)
+
+def formSmallest():
+    global smallestX, smallestY, smallestZ
+    if _1 < _4:
+        smallestX = _1
+    else:
+        smallestX = _4
+    if _2 < _5:
+        smallestY = _2
+    else:
+        smallestY = _5
+    if _3 < _6:
+        smallestZ = _3
+    else:
+        smallestZ = _6
+
+def on_on_chat214(blockid22):
+    global block
+    block = "stained_hardened_clay " + str(blockid22)
+    fill_world_edit()
+player.on_chat("\\\\stained_hardened_clay", on_on_chat214)
+
+def on_on_chat215():
+    global block
+    block = "raw_iron_block"
+    fill_world_edit()
+player.on_chat("\\\\raw_iron_block", on_on_chat215)
+
+def on_on_chat216():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 11 replace air")
+player.on_chat("\\\\waypoint_blue", on_on_chat216)
+
+def on_on_chat217(blockid23):
+    global block
+    block = "concretepowder " + str(blockid23)
+player.on_chat("\\\\select.concretepowder", on_on_chat217)
+
+def on_on_chat218():
+    global block
+    block = "grass"
+player.on_chat("\\\\select.grass", on_on_chat218)
+
+def on_on_chat219():
+    global block
+    block = "tnt"
+player.on_chat("\\\\select.tnt", on_on_chat219)
+
+def on_on_chat220():
+    global block
+    block = "quartz_block 3"
+player.on_chat("\\\\select.smooth_quartz_block", on_on_chat220)
+
+def on_on_chat221():
+    global block
+    block = "bbb:myalite_bricks"
+    fill_world_edit()
+player.on_chat("\\\\myalite_bricks", on_on_chat221)
+
+def on_on_chat222():
+    global block
+    block = "redstone_torch"
+    fill_world_edit()
+player.on_chat("\\\\redstone_torch", on_on_chat222)
+
+def on_on_chat223():
+    global block
+    block = "glass_pane"
+    fill_world_edit()
+player.on_chat("\\\\glass_pane", on_on_chat223)
+
+def on_on_chat224():
+    tellplayer("§6Type 'WeBasics' for help on the basics of using World Edit")
+    tellplayer("§bType 'WeChat' for help on basic chat commands")
+    tellplayer("§aType 'WeBlocks' for help on block usage")
+    tellplayer("§dType 'WeSpecial' for help on special commands")
+player.on_chat("WeHelp", on_on_chat224)
+
+def on_on_chat225():
+    global block
+    block = "air"
+player.on_chat("\\\\select.air", on_on_chat225)
+
+def on_on_chat226():
+    global harmingheadbut
+    if harmingheadbut == "false":
+        harmingheadbut = "true"
+        tellplayer("Harming Headbutt on")
+    else:
+        harmingheadbut = "false"
+        tellplayer("Harming Headbutt off")
+player.on_chat("\\\\headbutt", on_on_chat226)
+
+def on_on_chat227():
+    global block
+    block = "blue_ice"
+    fill_world_edit()
+player.on_chat("\\\\blue_ice", on_on_chat227)
+
+def on_on_chat228():
+    global block
+    block = "raw_gold_block"
+    fill_world_edit()
+player.on_chat("\\\\raw_gold_block", on_on_chat228)
+
+def fill():
+    global _1, _2, _3, select_1, _4, _5, _6
+    if select_1 == "false":
+        _1 = player.position().get_value(Axis.X)
+        _2 = player.position().get_value(Axis.Y)
+        _3 = player.position().get_value(Axis.Z)
+        tellplayer("§bWE §r: §dSet Position 1 : " + str(_1) + ", " + str(_2) + ", " + str(_3))
+        select_1 = "true"
+    else:
+        if select_1 == "true":
+            _4 = player.position().get_value(Axis.X)
+            _5 = player.position().get_value(Axis.Y)
+            _6 = player.position().get_value(Axis.Z)
+            tellplayer("§bWE §r: §aSet Position 2 : " + str(_4) + ", " + str(_5) + ", " + str(_6))
+            select_1 = "false"
+
+def on_on_chat229():
+    global block
+    block = "raw_copper_block"
+player.on_chat("\\\\select.raw_copper_block", on_on_chat229)
+
+def on_on_chat230():
+    global block
+    block = "crafting_table"
+    fill_world_edit()
+player.on_chat("\\\\crafting_table", on_on_chat230)
+
+def on_on_chat231():
+    global block
+    block = "raw_copper_block"
+    fill_world_edit()
+player.on_chat("\\\\raw_copper_block", on_on_chat231)
+
+def on_on_chat232(blockid24):
+    global block
+    block = "stained_glass " + str(blockid24)
+player.on_chat("\\\\select.stained_glass", on_on_chat232)
+
+def on_on_chat233():
+    global block
+    block = "end_portal"
+player.on_chat("\\\\select.end_portal", on_on_chat233)
+
+def on_on_chat234():
+    global block
+    block = "observer"
+player.on_chat("\\\\select.observer", on_on_chat234)
+
+def on_on_chat235():
+    global block
+    block = "bbb:polished_slate"
+    fill_world_edit()
+player.on_chat("\\\\polished_slate", on_on_chat235)
+
+def on_on_chat236():
+    global block
+    block = "bbb:andesite_bricks"
+player.on_chat("\\\\select.andesite_bricks", on_on_chat236)
+
+def on_on_chat237():
+    global block
+    block = "torch"
+    fill_world_edit()
+player.on_chat("\\\\torch", on_on_chat237)
+
+def on_on_chat238(tempNumber11):
+    global _2, _5
+    if tempNumber11 != 0:
+        formSmallest()
+        clone(world(smallestX, smallestY + tempNumber11, smallestZ))
+        _2 += tempNumber11
+        _5 += tempNumber11
+        loops.pause(2)
+        tempNumber11 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\copy.up", on_on_chat238)
+
+def on_on_chat239():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 13 replace air")
+player.on_chat("\\\\waypoint_green", on_on_chat239)
+
+def on_on_chat240():
+    tellplayer("§b--------------------------")
+    tellplayer("§dThe chat is the most powerful tool in World Edit")
+    tellplayer("§bHere are a list of some commands")
+    tellplayer("§bUse '\\\\\\\\fill' to fill your selected area with your selected block")
+    tellplayer("§bUse '\\\\\\\\copy' to copy your selected area to your feet, specifically the lower bound x,y,z corner will be positioned at your feet")
+    tellplayer("§bUse '\\\\\\\\cut' just like '\\\\\\\\copy' but removing the original selected area on move")
+    tellplayer("§bUse '\\\\\\\\optimize' to delete all floating items, in order to improve world preformance")
+    tellplayer("§bUse '\\\\\\\\gma' to change into adventure mode")
+    tellplayer("§bUse '\\\\\\\\gms' to change into survival mode")
+    tellplayer("§bUse '\\\\\\\\gmc' to change into creative mode")
+    tellplayer("§bUse '\\\\\\\\fill.replace_ground' just like '\\\\\\\\fill' but it only replaces the ground")
+    tellplayer("§bUse '\\\\\\\\fill.replace_water' just like '\\\\\\\\fill' but it only replaces the water")
+    tellplayer("§bUse '\\\\\\\\fill.replace_air' just like '\\\\\\\\fill' but it only replaces the air")
+    tellplayer("§bUse '\\\\\\\\light' to place fire where you are standing")
+    tellplayer("§bUse 'AllWeTools' to get the original full hotbar of world edit tools")
+    tellplayer("§bUse '\\\\\\\\less' to turn off the day-night cycle and the weather cycle as well as setting time to 'day' and weather to 'clear'")
+    tellplayer("§bUse '\\\\\\\\more' to turn on the day-night cycle and the weather cycle")
+    tellplayer("§bUse '\\\\\\\\wild' to teleport your self to random location")
+    tellplayer("§bUse '\\\\\\\\summon.tnt [amount]' to summon your specified amount of tnt")
+    tellplayer("§bUse '\\\\\\\\remove.tnt' to remove all lit tnt")
+    tellplayer("§bUse '\\\\\\\\tickspeed [amount]' to set the game ticking speed to your specified amount")
+    tellplayer("§bUse '\\\\\\\\agentup' to teleport your agent wayyyyy above your head and out of the way")
+    tellplayer("§bUse '\\\\\\\\agentcall' to teleport your agent to your feet")
+    tellplayer("§bUse '\\\\\\\\list.block' to remind yourself of your current block (your block clipboard)")
+    tellplayer("§b--------------------------")
+player.on_chat("WeChat", on_on_chat240)
+
+def on_on_chat241(blockid25):
+    global block
+    block = "fence " + str(blockid25)
+player.on_chat("\\\\select.fence", on_on_chat241)
+
+def on_on_chat242():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 7 replace air")
+player.on_chat("\\\\waypoint_gray", on_on_chat242)
+
+def on_on_chat243():
+    global block
+    block = "bbb:limestone_bricks"
+player.on_chat("\\\\select.myalite_bricks", on_on_chat243)
+
+def on_on_chat244():
+    global block
+    block = "gold_block"
+    fill_world_edit()
+player.on_chat("\\\\gold_block", on_on_chat244)
+
+def on_on_chat245():
+    global block
+    block = "bbb:limestone"
+player.on_chat("\\\\select.limestone", on_on_chat245)
+
+def on_on_chat246(blockid26):
+    global block
+    block = "log " + str(blockid26)
+    fill_world_edit()
+player.on_chat("\\\\log", on_on_chat246)
+
+def on_on_chat247():
+    global block
+    block = "anvil"
+    fill_world_edit()
+player.on_chat("\\\\anvil", on_on_chat247)
+
+def on_on_chat248():
+    global other_block, block
+    other_block = block
+    fill_replace("grass")
+    fill_replace("dirt")
+    block = "air 0"
+    fill_replace("log")
+    fill_replace("leaves")
+    block = other_block
+player.on_chat("\\\\fill.replace_ground", on_on_chat248)
+
+def on_on_chat249():
+    global block
+    block = "bbb:polished_jasper"
+player.on_chat("\\\\select.polished_jasper", on_on_chat249)
+
+def on_on_chat250():
+    global block
+    block = "torch"
+player.on_chat("\\\\select.torch", on_on_chat250)
+
+def on_on_chat251():
+    global block
+    block = "diamond_block"
+player.on_chat("\\\\select.diamond_block", on_on_chat251)
+
+def on_on_chat252():
+    global block
+    block = "raw_iron_block"
+player.on_chat("\\\\select.raw_iron_block", on_on_chat252)
+
+def on_on_chat253():
+    global block
+    block = "lava"
+    fill_world_edit()
+player.on_chat("\\\\lava", on_on_chat253)
+
+def on_on_chat254():
+    global block
+    block = "emerald_block"
+    fill_world_edit()
+player.on_chat("\\\\emerald_block", on_on_chat254)
+
+def on_on_chat255():
+    global block
+    block = "cobblestone"
+    fill_world_edit()
+player.on_chat("\\\\cobblestone", on_on_chat255)
+
+def on_on_chat256():
+    global block
+    block = "barrier"
+    fill_world_edit()
+player.on_chat("\\\\barrier", on_on_chat256)
+
+def on_on_chat257(blockid27):
+    global block
+    block = "concretepowder " + str(blockid27)
+    fill_world_edit()
+player.on_chat("\\\\concretepowder", on_on_chat257)
+
+def on_on_chat258():
+    global block
+    block = "diamond_block"
+    fill_world_edit()
+player.on_chat("\\\\diamond_block", on_on_chat258)
+
+def on_on_chat259():
+    global block
+    block = "coal_block"
+    fill_world_edit()
+player.on_chat("\\\\coal_block", on_on_chat259)
+
+def on_on_chat260():
+    global block
+    block = "observer"
+    fill_world_edit()
+player.on_chat("\\\\observer", on_on_chat260)
+
+def on_on_chat261():
+    global block
+    block = "beacon"
+    fill_world_edit()
+player.on_chat("\\\\beacon", on_on_chat261)
+
+def on_on_chat262():
+    global block
+    block = "lava"
+player.on_chat("\\\\select.lava", on_on_chat262)
+
+def on_on_chat263():
+    global block
+    block = "furnace"
+    fill_world_edit()
+player.on_chat("\\\\furnace", on_on_chat263)
+
+def on_on_chat264():
+    global block
+    block = "brick_block"
+    fill_world_edit()
+player.on_chat("\\\\brick", on_on_chat264)
+
+def on_on_chat265():
+    global block
+    block = "hardened_clay"
+    fill_world_edit()
+player.on_chat("\\\\terracotta", on_on_chat265)
+
+def on_forever3():
+    global total1, position
+    total1 = "" + str(_1) + ("" + str(_2) + str(_3))
+    position = "" + str(_4) + ("" + str(_5) + str(_6))
+loops.forever(on_forever3)
+
+def on_on_chat266():
+    formLargest()
+    tellplayer("§6The largest values of each dimension within the selected area is: " + str(world(largestX, largestY, largestZ)))
+player.on_chat("\\\\form_largest_debug", on_on_chat266)
+
+def on_on_chat267():
+    global block
+    block = "bbb:cobblestone_bricks"
+    fill_world_edit()
+player.on_chat("\\\\cobblestone_bricks", on_on_chat267)
+
+def on_item_interacted_paper():
+    clone(pos(0, 0, 0))
+player.on_item_interacted(PAPER, on_item_interacted_paper)
+
+def on_on_chat268():
+    global block
+    block = "bbb:subtle_bricks"
+    fill_world_edit()
+player.on_chat("\\\\subtle_bricks", on_on_chat268)
+
+def on_on_chat269():
+    global block
+    block = "stone 2"
+    fill_world_edit()
+player.on_chat("\\\\polished_granite", on_on_chat269)
+
+def on_on_chat270():
+    player.execute("kill @e[type=tnt]")
+player.on_chat("\\\\remove.tnt", on_on_chat270)
+
+def on_on_chat271():
+    global block
+    block = "gold_block"
+player.on_chat("\\\\select.gold_block", on_on_chat271)
+
+def on_on_chat272():
+    global block
+    block = "iron_ore"
+    fill_world_edit()
+player.on_chat("\\\\iron_ore", on_on_chat272)
+
+def on_on_chat273():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 8 replace air")
+player.on_chat("\\\\waypoint_light_gray", on_on_chat273)
+
+def on_on_chat274():
+    global block
+    block = "stone 5"
+    fill_world_edit()
+player.on_chat("\\\\andesite", on_on_chat274)
+
+def on_on_chat275(blockid28):
+    global block
+    block = "stonebrick " + str(blockid28)
+player.on_chat("\\\\select.stonebrick", on_on_chat275)
+
+def on_on_chat276():
+    global block
+    block = "bbb:blackstone_bricks"
+    fill_world_edit()
+player.on_chat("\\\\blackstone_bricks", on_on_chat276)
+
+def on_on_chat277():
+    global block
+    block = "emerald_block"
+player.on_chat("\\\\select.emerald_block", on_on_chat277)
+
+def on_on_chat278():
+    global block
+    block = "blue_ice"
+player.on_chat("\\\\select.blue_ice", on_on_chat278)
+
+def on_on_chat279(blockid29):
+    global block
+    block = "leaves " + str(blockid29)
+player.on_chat("\\\\select.leaves", on_on_chat279)
+
+def on_on_chat280():
+    global block
+    block = "air"
+    fill_world_edit()
+player.on_chat("\\\\air", on_on_chat280)
+
+def on_on_chat281(config_test2):
+    global config_var, Give_Brush_On_Setup
+    config_var = config_test2
+    if not (config_var == 0 or config_var == 1):
+        tellplayer("§cConfig is Either 0/1")
+    else:
+        if config_var == 0:
+            tellplayer("§dGive Brush On Setup is set to TRUE")
+            Give_Brush_On_Setup = "true"
+        else:
+            tellplayer("§dGive Brush On Setup is set to FALSE")
+            Give_Brush_On_Setup = "false"
+player.on_chat("GiveBrushOnSetup", on_on_chat281)
+
+def on_on_chat282(blockid30):
+    global block
+    block = "sandstone " + str(blockid30)
+player.on_chat("\\\\select.sandstone", on_on_chat282)
+
+def on_item_interacted_diamond_shovel():
+    global look_middle
+    player.execute("execute @s ~~~ teleport @e[type=agent] ^ ^ ^" + str(brush_distance))
+    look_middle = agent.get_position()
+    player.execute("/execute @s ~~~ clone " + str(brush_radius) + " " + str((150 + brush_radius)) + " " + str(brush_radius) + " " + ("-" + str(brush_radius)) + " " + str((150 - brush_radius)) + " " + ("-" + str(brush_radius)) + " " + ("" + str((look_middle.get_value(Axis.X) - brush_radius))) + " " + ("" + str((look_middle.get_value(Axis.Y) - brush_radius))) + " " + ("" + str((look_middle.get_value(Axis.Z) - brush_radius))) + " masked")
+player.on_item_interacted(DIAMOND_SHOVEL, on_item_interacted_diamond_shovel)
+
+def on_on_chat283(blockid31):
+    global block
+    block = "wool " + str(blockid31)
+    fill_world_edit()
+player.on_chat("\\\\wool", on_on_chat283)
+
+def on_on_chat284(blockid32):
+    global block
+    block = "stained_glass_pane " + str(blockid32)
+player.on_chat("\\\\select.stained_glass_pane", on_on_chat284)
+
+def on_on_chat285(blockid33):
+    global block
+    block = "stained_hardened_clay " + str(blockid33)
+player.on_chat("\\\\select.stained_hardened_clay", on_on_chat285)
+
+def on_on_chat286():
+    global block
+    block = "bbb:polished_shale"
+player.on_chat("\\\\select.polished_shale", on_on_chat286)
+
+def on_on_chat287():
+    global block
+    block = "bbb:rocky_stone"
+    fill_world_edit()
+player.on_chat("\\\\rocky_stone", on_on_chat287)
+
+def on_on_chat288():
+    player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"§5Blocks in World Edit\"}]}")
+    player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"§6--------------------------\"}]}")
+    player.execute("/tellraw @s {\"rawtext\":[{\"text\":\"§6Torch, Redstone Torch, TNT, Fire, Water, Lava, Lapis Block, Concrete, Diamond Block, Packed Ice, Ice, Blue Ice, Furnace, Planks, Dirt, Hopper, Log, Cobblestone, Bedrock, Stone, Glowstone, Sand, Gold Ore, Polished Andesite, End Stone, Diorite, Granite, Polished, Diorite, Andesite, Soul Sand, Netherrack, Polished Granite, Air, Grass, Leaves, Iron Ore, Sponge, Emerald Ore, Diamond Ore, Coal Ore, Snow, Redstone Block, Wool, Gold Block, Iron Block, Beacon, Crafting Table, Gravel, Observer, Anvil, Obsidian, End Portal, Portal & Stained Glass\"}]}")
+player.on_chat("BlockList", on_on_chat288)
+
+def on_on_chat289():
+    global block
+    block = "calcite"
+player.on_chat("\\\\select.calcite", on_on_chat289)
+
+def on_on_chat290(blockid34):
+    global block
+    block = "planks " + str(blockid34)
+player.on_chat("\\\\select.planks", on_on_chat290)
+
+def on_on_chat291():
+    global block
+    block = "gravel"
+    fill_world_edit()
+player.on_chat("\\\\gravel", on_on_chat291)
+
+def on_on_chat292():
+    global nightVis
+    if nightVis == "false":
+        player.execute("effect @s night_vision 999999 0 true")
+        nightVis = "true"
+        tellplayer("Night Vision on")
+    else:
+        player.execute("effect @s night_vision 0 10 true")
+        nightVis = "false"
+        tellplayer("Night Vision off")
+player.on_chat("\\\\nightvis", on_on_chat292)
+
+def on_on_chat293():
+    global block
+    block = "bbb:jasper"
+    fill_world_edit()
+player.on_chat("\\\\jasper", on_on_chat293)
+
+def on_on_chat294():
+    global invanish
+    if invanish == "false":
+        player.execute("effect @s invisibility 999999 255 true")
+        player.execute("effect @s night_vision 999999 255 true")
+        invanish = "true"
+        tellplayer("Vanish on")
+    else:
+        player.execute("effect @s invisibility 0 255 true")
+        tellplayer("Vanish off")
+        player.execute("effect @s night_vision 0 255 true")
+        invanish = "false"
+player.on_chat("\\\\vanish", on_on_chat294)
+
+def on_on_chat295():
+    global block
+    block = "stone 1"
+player.on_chat("\\\\select.granite", on_on_chat295)
+
+def on_on_chat296(blockid35):
+    global block
+    block = "sandstone " + str(blockid35)
+    fill_world_edit()
+player.on_chat("\\\\sandstone", on_on_chat296)
+
+def on_on_chat297(blockid36):
+    global block
+    block = "wood " + str(blockid36)
+    fill_world_edit()
+player.on_chat("\\\\wood", on_on_chat297)
+
+def on_on_chat298():
+    player.execute("/fill ~ ~100 ~ ~~~ wool 2 replace air")
+player.on_chat("\\\\waypoint_magenta", on_on_chat298)
+
+def on_on_chat299():
+    global block
+    block = "bbb:alternate_dotted_subtle_bricks"
+player.on_chat("\\\\select.alternate_dotted_subtle_bricks", on_on_chat299)
+
+def on_on_chat300():
+    global block
+    block = "bbb:shale_bricks"
+    fill_world_edit()
+player.on_chat("\\\\shale_bricks", on_on_chat300)
+
+def on_on_chat301():
+    player.execute("give @s wooden_axe")
+player.on_chat("\\\\wand", on_on_chat301)
+
+def on_on_chat302():
+    global block
+    block = "portal"
+player.on_chat("\\\\select.portal", on_on_chat302)
+
+def on_on_chat303():
+    global block
+    block = "bbb:jasper_bricks"
+    fill_world_edit()
+player.on_chat("\\\\jasper_bricks", on_on_chat303)
+
+def on_on_chat304():
+    global block
+    block = "bbb:shale"
+player.on_chat("\\\\select.shale", on_on_chat304)
+
+def on_on_chat305():
+    global block
+    block = "iron_ore"
+player.on_chat("\\\\select.iron_ore", on_on_chat305)
+
+def on_on_chat306():
+    shapes.line(blocks.block_with_data(blocks.block_by_name(block.split(" ")[0]),
+            parse_float(block.split(" ")[1])),
+        world(_1, _2, _3),
+        world(_4, _5, _6))
+player.on_chat("\\\\line", on_on_chat306)
+
+def on_on_chat307():
+    global block
+    block = "redstone_torch"
+player.on_chat("\\\\select.redstone_torch", on_on_chat307)
+
+def on_on_chat308():
+    global block
+    block = "grass"
+    fill_world_edit()
+player.on_chat("\\\\grass", on_on_chat308)
+
+def on_on_chat309():
+    player.execute("gamerule doweathercycle true")
+    player.execute("gamerule dodaylightcycle true")
+player.on_chat("\\\\more", on_on_chat309)
+
+def on_on_chat310():
+    fill_world_edit()
+player.on_chat("\\\\fill", on_on_chat310)
+
+def on_on_chat311():
+    global block
+    block = "stone 6"
+player.on_chat("\\\\select.polished_andesite", on_on_chat311)
+
+def on_on_chat312():
+    global block
+    block = "bbb:jasper"
+player.on_chat("\\\\select.jasper", on_on_chat312)
+
+def on_on_chat313(tempNumber12):
+    global _2, _5
+    if tempNumber12 != 0:
+        formSmallest()
+        cut(world(smallestX, smallestY + tempNumber12, smallestZ))
+        _2 += tempNumber12
+        _5 += tempNumber12
+        tempNumber12 = 0
+    else:
+        tellplayer("Number Not Valid")
+player.on_chat("\\\\up", on_on_chat313)
+
+def on_on_chat314():
+    global block
+    block = "bedrock"
+    fill_world_edit()
+player.on_chat("\\\\bedrock", on_on_chat314)
+
+look_middle: Position = None
+config_var = 0
+position = ""
+total1 = ""
+other_block = ""
+brush_radius = 0
+blockid37 = 0
+largestZ = 0
+largestY = 0
+largestX = 0
+block_text_mask = ""
+smallestZ = 0
+smallestY = 0
+smallestX = 0
+_6 = 0
+_5 = 0
+_4 = 0
+_3 = 0
+_2 = 0
+_1 = 0
+block = ""
+nightVis = ""
+harmingheadbut = ""
+onehit = ""
+invanish = ""
+select_1 = ""
+camera = ""
+brush_distance = 0
+Give_Brush_On_Setup = ""
+Give_Brush_On_Setup = "true"
+brush_distance = 12
+player.execute("tickingarea remove brush")
+player.execute("tickingarea add circle 0 0 0 4 brush")
+camera = "false"
+select_1 = "false"
+invanish = "false"
+onehit = "false"
+harmingheadbut = "false"
+nightVis = "false"
+number2 = 3
+summon_amount2 = 1
+tellplayer("Type 'Wetools' for the World Edit Tools")
+tellplayer("Type 'Weconfig' for the World Edit Settings")
+tellplayer("Type 'WeHelp' for help with commands")
