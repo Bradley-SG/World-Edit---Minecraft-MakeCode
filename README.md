@@ -2,6 +2,7 @@
 World Edit for Minecraft: Education Edition is a set of tools and commands that allow greater control over terrain and block selection. The project was made using Microsoft MakeCode and can be imported either through the link of the single file
 
 ----To Use The Project----
+
   Players must have operator permissions to use the code
   and the world must have cheats enabled
   1. Open up the code builder screen either by using the '/code' command or tapping the 'c' keybind
@@ -14,6 +15,7 @@ World Edit for Minecraft: Education Edition is a set of tools and commands that 
   8. Use the tool to your hearts content. There will also be chat instructions on how to use the tutorial screens.
 
 --Notes--
+
 This project was made on Microsoft MakeCode for Minecraft: Education Edition, due to the limitations of the code engine the project is, in itself limited. This being the case I hve had to work out work arounds and different solutions to add functionality to the project.
 Due to the reasons stated above the code can be excrutiatingly slow especially when playing multiplayer.
 The sloewest command is the line and the brush tool.
