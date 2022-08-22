@@ -1,5 +1,5 @@
 # World-Edit---Minecraft-MakeCode
-World Edit for Minecraft: Education Edition is a set of tools and commands that allow greater control over terrain and block selection. The project was made using Microsoft MakeCode and can be imported either through the link of the single file
+World Edit for Minecraft: Education Edition is a set of tools and commands that allow greater control over terrain and block selection. The project was made using Microsoft MakeCode and can be imported either through the link or the single file
 
 ----To Use The Project----
 
